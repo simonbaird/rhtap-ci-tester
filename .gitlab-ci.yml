@@ -16,6 +16,8 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
+image: quay.io/sbaird/rhtap-ci-images:gitlab
+
 stages:          # List of stages for jobs, and their order of execution
   - build
   - test
@@ -24,6 +26,8 @@ stages:          # List of stages for jobs, and their order of execution
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
+    - pwd
+    - ls -l /work/rhtap
     - echo "Compiling the code..."
     - echo "Compile complete."
 
