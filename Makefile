@@ -11,3 +11,9 @@ push:
 
 run:
 	podman run --rm $(PUSH_REF)
+
+compare-gitlab:
+	vimdiff ../tssc-dev-multi-ci/.gitlab-ci.yml ./.gitlab-ci.yml
+
+compare-github:
+	vimdiff ../tssc-dev-multi-ci/.github/workflows/build-and-update-gitops.yml ./.github/workflows/build-and-update-gitops.yml
