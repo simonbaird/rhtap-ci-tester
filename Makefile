@@ -12,8 +12,12 @@ push:
 run:
 	podman run --rm $(PUSH_REF)
 
+GENERATED=../tssc-dev-multi-ci/generated/source-repo/
+GITLAB_PIPELINE=.gitlab-ci.yml
+GITHUB_PIPELINE=.github/workflows/build-and-update-gitops.yml
+
 compare-gitlab:
-	vimdiff ../tssc-dev-multi-ci/.gitlab-ci.yml ./.gitlab-ci.yml
+	vimdiff $(GENERATED)/gitlabci/$(GITLAB_PIPELINE) $(GITLAB_PIPELINE)
 
 compare-github:
-	vimdiff ../tssc-dev-multi-ci/.github/workflows/build-and-update-gitops.yml ./.github/workflows/build-and-update-gitops.yml
+	vimdiff $(GENERATED)/githubactions/$(GITHUB_PIPELINE) $(GITHUB_PIPELINE)
